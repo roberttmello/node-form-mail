@@ -14,6 +14,6 @@ contactForm.addEventListener("submit",async (event) => {
     subject: subject.value,
     message: message.value,
   };
-  if(formData) await axios.post('/send',formData);
+  await axios.post('/send',formData);  
   
 });
