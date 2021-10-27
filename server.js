@@ -1,9 +1,11 @@
 const express = require("express");
+require("dotenv").config();
 const nodemailer = require("nodemailer");
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
 
 // Middleware
 app.use(express.static("public"));
@@ -14,12 +16,11 @@ app.get("/", (request, response) => {
 });
 
 app.post("/", (request, response) => {
-
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: "crobertdmelo@gmail.com",
-      pass: "roberttmelloGM2030@",
+      pass: EMAIL_PASSWORD,
     },
   });
 
